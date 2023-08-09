@@ -1,11 +1,18 @@
 import {EventEmitter} from "events";
 
 declare class Pdfparser extends EventEmitter{
-    constructor(context?: any, needRawText?: number, password?: string);
+    constructor(context?: any, needRawText?: boolean | null, password?: string);
     parseBuffer(buffer: Buffer): void;
     loadPDF(pdfFilePath: string, verbosity?: number):Promise<void>
     createParserStream():ParserStream
     on<K extends keyof EventMap>(eventName: K, listener: EventMap[K]): this
+    getRawTextContent: () => string
+    getRawTextContents: () => string[] | null
+}
+
+export declare interface PageAndTextContent {
+    page: Page,
+    textContent: string
 }
 
 export type EventMap = {
@@ -13,6 +20,7 @@ export type EventMap = {
     "pdfParser_dataReady": (pdfData: Output) => void;
     "readable": (meta: Output["Meta"]) => void;
     "data": (data: Output["Pages"][number]|null) => void;
+    "pageAndTextContent": (data: PageAndTextContent | null) => void;
 }
 
 declare class ParserStream{
@@ -100,15 +108,6 @@ export declare interface Field {
 }
 
 export declare interface Box {
-    x: number,
-    y: number,
-    w: number,
-    h: number,
-    oc?: string,
-    clr?: number
-}
-
-export declare interface Box {
     id : {
         Id : string,
         EN? : number
@@ -121,6 +120,8 @@ export declare interface Box {
     y: number,
     w: number,
     h: number,
+    oc?: string,
+    clr?: number
     TI: number;
     AM: number;
     checked?: boolean;

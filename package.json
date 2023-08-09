@@ -1,7 +1,11 @@
 {
-  "name": "pdf2json",
+  "name": "@spklai/pdf2json",
   "version": "3.0.4",
   "description": "PDF file parser that converts PDF binaries to text based JSON, powered by porting a fork of PDF.JS to Node.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "pdf",
     "pdf parser",
@@ -17,14 +21,13 @@
     "pdf.js fork"
   ],
   "author": {
-    "name": "Modesty Zhang",
-    "email": "modestyz@hotmail.com",
-    "url": "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=62372"
+    "name": "SparkleAI",
+    "email": "dev@spklai.com"
   },
-  "homepage": "https://github.com/modesty/pdf2json",
+  "homepage": "https://github.com/spklai/pdf2json",
   "repository": {
     "type": "git",
-    "url": "git://github.com/modesty/pdf2json.git"
+    "url": "git://github.com/spklai/pdf2json.git"
   },
   "main": "./pdfparser.js",
   "typings": "./pdfparser.d.ts",
@@ -64,15 +67,14 @@
   ],
   "maintainers": [
     {
-      "name": "Modesty Zhang",
-      "email": "modestyz@hotmail.com",
-      "url": "http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=62372"
+      "name": "SparkleAI",
+      "email": "dev@spklai.com"
     }
   ],
   "contributors": [],
   "bugs": {
-    "url": "http://github.com/modesty/pdf2json/issues"
+    "url": "https://github.com/spklai/pdf2json"
   },
   "license": "Apache-2.0",
-  "readme": "https://github.com/modesty/pdf2json/blob/master/readme.md"
+  "readme": "https://github.com/spklai/pdf2json/blob/master/readme.md"
 }

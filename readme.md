@@ -1,5 +1,7 @@
 # pdf2json
 
+> This is a fork of [pdf2json](https://github.com/modesty/pdf2json) with our modifications.
+
 pdf2json is a [node.js](http://nodejs.org/) module that parses and converts PDF from binary to json format, it's built with [pdf.js](https://github.com/mozilla/pdf.js/) and extends with interactive form elements and text content parsing outside browser.
 
 The goal is to enable server side PDF parsing with interactive form elements when wrapped in web service, and also enable parsing local PDF to json file when using as a command line utility.

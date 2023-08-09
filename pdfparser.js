@@ -25,6 +25,7 @@ export default class PDFParser extends EventEmitter { // inherit from event emit
     #pdfFilePath = null; //current PDF file to load and parse, null means loading/parsing not started
     #pdfFileMTime = null; // last time the current pdf was modified, used to recognize changes and ignore cache
     #data = null; //if file read success, data is PDF content; if failed, data is "err" object
+	/** @type {PDFJS} */
     #PDFJS = null; //will be initialized in constructor
     #processFieldInfoXML = false;//disable additional _fieldInfo.xml parsing and merging (do NOT set to true)
 
@@ -72,6 +73,7 @@ export default class PDFParser extends EventEmitter { // inherit from event emit
         //v1.3.0 the following Readable Stream-like events are replacement for the top two custom events
         this.#PDFJS.on("readable", meta => this.emit("readable", meta));
         this.#PDFJS.on("data", data => this.emit("data", data));
+		this.#PDFJS.on("pageAndTextContent", data => this.emit("pageAndTextContent", data));
         this.#PDFJS.on("error", err => this.#onPDFJSParserDataError(err));    
 
 		this.#PDFJS.parsePDFData(buffer || PDFParser.#binBuffer[this.binBufferKey], this.#password);
@@ -136,6 +138,7 @@ export default class PDFParser extends EventEmitter { // inherit from event emit
 	}
 
 	getRawTextContent() { return this.#PDFJS.getRawTextContent(); }
+	getRawTextContents() { return this.#PDFJS.getRawTextContents(); }
 	getRawTextContentStream() { return ParserStream.createContentStream(this.getRawTextContent()); }
 
 	getAllFieldsTypes() { return this.#PDFJS.getAllFieldsTypes(); };
