@@ -4,6 +4,7 @@
 
 ## Improvements
 
+- [x] CommonJS module
 - [x] `onPageAndTextContent` callback
 
 ## License
