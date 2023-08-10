@@ -4,7 +4,6 @@
 
 ## Improvements
 
-- [x] Support for CommonJS
 - [x] `onPageAndTextContent` callback
 
 ## License

@@ -1,6 +1,6 @@
 {
   "name": "@spklai/pdf2json",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "PDF file parser that converts PDF binaries to text based JSON, powered by porting a fork of PDF.JS to Node.js",
   "private": false,
   "publishConfig": {
@@ -29,12 +29,8 @@
     "type": "git",
     "url": "git://github.com/spklai/pdf2json.git"
   },
+  "main": "./pdfparser.js",
   "types": "./pdfparser.d.ts",
-  "exports": {
-    "types": "./pdfparser.d.ts",
-    "import": "./pdfparser.js",
-    "require": "./pdfparser.cjs"
-  },
   "scripts": {
     "build-cjs": "rollup -c rollup.config.js",
     "test": "cd ./test && sh p2j.forms.sh",
