@@ -6,6 +6,7 @@
 
 - [x] CommonJS module
 - [x] `onPageAndTextContent` callback
+- [x] No dangerous `eval` calls
 
 ## License
 
