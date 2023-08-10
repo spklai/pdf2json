@@ -2,10 +2,10 @@
 const config = {
     input: './pdfparser.js',
     output: {
-        file: './dist/pdfparser.cjs',
+        file: './pdfparser.cjs',
         format: 'cjs',
         exports: 'default',
-        sourcemap: true,
+        sourcemap: false,
     },
 };
 

@@ -33,7 +33,7 @@
   "exports": {
     "types": "./pdfparser.d.ts",
     "import": "./pdfparser.js",
-    "require": "./dist/pdfparser.cjs"
+    "require": "./pdfparser.cjs"
   },
   "scripts": {
     "build-cjs": "rollup -c rollup.config.js",

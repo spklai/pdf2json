@@ -2210,4 +2210,3 @@ class PDFParser extends events.EventEmitter { // inherit from event emitter
 }
 
 module.exports = PDFParser;
-//# sourceMappingURL=pdfparser.cjs.map
