@@ -1,6 +1,6 @@
 {
   "name": "@spklai/pdf2json",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "PDF file parser that converts PDF binaries to text based JSON, powered by porting a fork of PDF.JS to Node.js",
   "private": false,
   "publishConfig": {
@@ -29,9 +29,13 @@
     "type": "git",
     "url": "git://github.com/spklai/pdf2json.git"
   },
-  "main": "./pdfparser.js",
-  "typings": "./pdfparser.d.ts",
+  "exports": {
+    "types": "./pdfparser.d.ts",
+    "import": "./pdfparser.js",
+    "require": "./dist/pdfparser.cjs"
+  },
   "scripts": {
+    "build-cjs": "rollup -c rollup.config.js",
     "test": "cd ./test && sh p2j.forms.sh",
     "test-misc": "cd ./test && sh p2j.one.sh misc . \"Expected: 7 success, 3 fail exception with stack trace\" ",
     "parse": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/fd/form/F1040.pdf -o ./test/target/fd/form",
@@ -42,8 +46,8 @@
     "parse-r": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/fd/form/F1040.pdf -o ./test/target/fd/form -t -c -m -r",
     "parse-fd": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/fd/form/ -o ./test/target/fd/form -t -c -m -r",
     "parse-tb": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/misc/i242_testingWithTable.pdf -o ./test/target/misc",
-	"parse-tc": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/misc/i293_pdfpac.pdf -o ./test/target/misc",
-	"parse-rectFix": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/misc/pr298_rect_fix_from_upstream.pdf -o ./test/target/misc",
+    "parse-tc": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/misc/i293_pdfpac.pdf -o ./test/target/misc",
+    "parse-rectFix": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/misc/pr298_rect_fix_from_upstream.pdf -o ./test/target/misc",
     "parse-e": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/misc/i43_encrypted.pdf -o ./test/target/misc",
     "parse-e2": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/misc/i243_problem_file_anon.pdf -o ./test/target/misc",
     "parse-e3": "node --trace-deprecation --trace-warnings pdf2json.js -f ./test/pdf/misc/i200_test.pdf -o ./test/target/misc"
@@ -60,7 +64,8 @@
     "@xmldom/xmldom": "^0.8.8"
   },
   "devDependencies": {
-    "@types/node": "^20.3.1"
+    "@types/node": "^20.3.1",
+    "rollup": "^3.28.0"
   },
   "bundledDependencies": [
     "@xmldom/xmldom"
