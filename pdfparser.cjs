@@ -44880,7 +44880,7 @@ class PDFJSClass extends events.EventEmitter {
                                 }
                                 this.emit("pageAndTextContent", {
                                     page,
-                                    retVal
+                                    textContent: retVal
                                 });
                             }
 	                        continueOnNextPage.call(this);
