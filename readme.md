@@ -2,6 +2,16 @@
 
 > This is a fork of [pdf2json](https://github.com/modesty/pdf2json) with our modifications.
 
+## Installation
+
+```bash
+npm install @spklai/pdf2json
+
+# or
+
+yarn add @spklai/pdf2json
+```
+
 ## Improvements
 
 - [x] CommonJS module
